@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeopardy!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>JEOPARDY!</h1>
+    <div class="game-controls">
+      <button id="reset-board" class="btn btn-secondary" title="Put all questions back on the board (keeps scores)">Reset Board</button>
+      <button id="new-game" class="btn btn-danger" title="Reset board and set every score to 0">New Game</button>
+    </div>
+  </header>
+
+  <section class="teams-panel">
+    <form id="add-team-form">
+      <input id="team-name" type="text" placeholder="Team name" maxlength="30" autocomplete="off" />
+      <button type="submit" class="btn">+ Add Team</button>
+    </form>
+    <div id="scoreboard" class="scoreboard"></div>
+  </section>
+
+  <main>
+    <div id="board" class="board"></div>
+  </main>
+
+  <!-- Question pop-up -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span id="modal-category"></span>
+        <span id="modal-value"></span>
+      </div>
+
+      <p id="modal-question" class="modal-question"></p>
+
+      <button id="reveal-btn" class="btn btn-gold">Show Answer</button>
+      <p id="modal-answer" class="modal-answer hidden"></p>
+
+      <div class="award-section">
+        <p class="award-label">Who answered?</p>
+        <div id="award-buttons" class="award-buttons"></div>
+        <p id="no-teams-msg" class="no-teams hidden">Add a team to start awarding points.</p>
+      </div>
+
+      <button id="close-btn" class="btn btn-secondary close-btn">Close</button>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
